@@ -1,13 +1,14 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import './ActivityDetails.css';
 
 function ActivityDetails() {
   const { state } = useLocation();
+  const { id } = useParams();
   const activity = state && state.activity;
 
   if (!activity) {
-    return <div>No activity details available.</div>;
+    return <div>No activity details available for activity id: {id}</div>;
   }
   return (
     <div className="activity-details">
