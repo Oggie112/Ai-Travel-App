@@ -41,7 +41,7 @@ function ActivityList() {
 
   if (activities.length === 0) {
     return (
-      <div style={{ padding: '20px', textAlign: 'center', fontSize: '1.2em' }}>
+      <div style={{ padding: '20px', textAlign: 'center', fontSize: '1.2em', color: 'red' }}>
         No activities match your filters.
       </div>
     );
