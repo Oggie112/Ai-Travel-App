@@ -1,31 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ActivityService from '../ActivityService';
 import UserPreferences from '../services/UserPreferences';
 import './ActivityDetails.css';
 
 function ActivityDetails() {
-  const { state } = useLocation();
   const { id } = useParams();
-  const [activity, setActivity] = useState(state && state.activity ? state.activity : null);
+  const [activity, setActivity] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!activity) {
-      ActivityService.getActivityDetails(id)
-        .then((data) => {
-          if (data.error) {
-            setError(data.error);
-          } else {
-            setActivity(data);
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-          setError("Failed to fetch activity details.");
-        });
-    }
-  }, [id, activity]);
+    ActivityService.getActivityDetails(id)
+      .then((data) => {
+        if (data.error) {
+          setError(data.error);
+        } else {
+          setActivity(data);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setError("Failed to fetch activity details.");
+      });
+  }, [id]);
 
   const handleFavorite = () => {
     if (!activity) return;
