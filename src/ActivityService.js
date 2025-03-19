@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const activities = [
   {
     id: 1,
@@ -51,13 +53,28 @@ export function getFilteredActivities(filters) {
   });
 }
 
+export function getPosts() {
+  return axios.get("https://jsonplaceholder.typicode.com/posts")
+    .then(response => {
+      console.log("Axios GET posts response:", response.data);
+      return response.data;
+    })
+    .catch(error => {
+      console.error("Axios GET posts error:", error);
+      return { error: "Failed to fetch posts" };
+    });
+}
+
 export default {
   getActivities,
-  getFilteredActivities
+  getFilteredActivities,
+  getPosts
 };
 
 // Sample test: calling getFilteredActivities with sample filters and logging the result.
-// This code is for testing purposes and will run when this module is executed.
 getFilteredActivities({ type: 'hiking', cost: 'low' }).then(filteredActivities => {
   console.log('Filtered activities for type "hiking" and cost "low":', filteredActivities);
 });
+
+// Test Axios GET request
+getPosts();
