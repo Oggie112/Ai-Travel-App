@@ -53,6 +53,26 @@ export function getFilteredActivities(filters) {
   });
 }
 
+export async function getRandomActivities() {
+  try {
+    const response = await axios.get('https://api.mocki.io/v2/12345');
+    const data = response.data;
+    const mappedActivities = data.map((activity, index) => ({
+      id: activity.id || index + 1,
+      name: activity.name || "Unknown Activity",
+      description: activity.description || "",
+      type: activity.type || "unknown",
+      destination: activity.destination || "unknown",
+      cost: activity.cost || "unknown",
+      imageUrl: activity.imageUrl || "https://example.com/default.jpg"
+    }));
+    return mappedActivities;
+  } catch (error) {
+    console.error("Axios GET random activities error:", error);
+    return [];
+  }
+}
+
 export function getPosts() {
   return axios.get("https://jsonplaceholder.typicode.com/posts")
     .then(response => {
@@ -68,6 +88,7 @@ export function getPosts() {
 export default {
   getActivities,
   getFilteredActivities,
+  getRandomActivities,
   getPosts
 };
 
@@ -76,5 +97,5 @@ getFilteredActivities({ type: 'hiking', cost: 'low' }).then(filteredActivities =
   console.log('Filtered activities for type "hiking" and cost "low":', filteredActivities);
 });
 
-// Test Axios GET request
+// Test Axios GET request for posts
 getPosts();
