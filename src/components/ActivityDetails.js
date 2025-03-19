@@ -46,6 +46,9 @@ function ActivityDetails() {
       <p>{activity.description}</p>
       <p>Destination: {activity.destination}</p>
       <p>Cost: {activity.cost}</p>
+      <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="booking-link">
+        Book Now
+      </a>
       <img src={activity.imageUrl} alt={activity.name} />
       <button onClick={handleFavorite} className="favorite-button">Favorite</button>
     </div>
