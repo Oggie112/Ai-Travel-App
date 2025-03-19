@@ -1,7 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './ActivityDetails.css';
 
-function ActivityDetails({ activity }) {
+function ActivityDetails() {
+  const { state } = useLocation();
+  const activity = state && state.activity;
+
   if (!activity) {
     return <div>No activity details available.</div>;
   }
