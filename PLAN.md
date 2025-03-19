@@ -70,6 +70,8 @@ In the 'travel-planner' React project, add `getActivityDetails(id)` to `Activity
 ## Prompt 20: Add Cost and Booking Links
 In the 'travel-planner' React project, update `ActivityDetails.js` to display a mock `cost` (e.g., "$100-$200") and a "Book Now" link (e.g., `https://example.com`). Assume these fields come from the API response. Style them with CSS for clarity. Test the display.
 
+# Got up to here!
+
 ## Prompt 21: Add API Error Handling
 In the 'travel-planner' React project, update `ActivityService.js` to wrap Axios calls in try-catch blocks. Return an `error` property (e.g., `{ error: "Failed to fetch" }`) if the request fails. Test by using an invalid API URL and logging the result.
 
