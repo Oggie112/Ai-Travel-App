@@ -1,4 +1,5 @@
 import React from 'react';
+import Filters from './components/Filters';
 import ActivityList from './components/ActivityList';
 import Favorites from './components/Favorites';
 import './LandingPage.css';
@@ -11,6 +12,7 @@ function LandingPage() {
         <p>Your one-stop solution for all your awesome needs.</p>
       </header>
       <main className="landing-main">
+        <Filters />
         <ActivityList />
         <Favorites />
       </main>
