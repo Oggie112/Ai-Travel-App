@@ -8,8 +8,9 @@ function ActivityDetails({ activity }) {
   return (
     <div className="activity-details">
       <h1>{activity.name}</h1>
-      <h2>{activity.type ? `Type: ${activity.type}` : 'Type: Not specified'}</h2>
+      <p>{activity.description}</p>
       <p>Destination: {activity.destination}</p>
+      <img src={activity.imageUrl} alt={activity.name} />
     </div>
   );
 }
