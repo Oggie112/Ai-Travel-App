@@ -45,7 +45,7 @@ function ActivityDetails() {
       <h1>{activity.name}</h1>
       <p>{activity.description}</p>
       <p>Destination: {activity.destination}</p>
-      <p>Cost: {activity.cost}</p>
+      <p className="activity-cost">Cost: {activity.cost || "$100-$200"}</p>
       <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="booking-link">
         Book Now
       </a>
