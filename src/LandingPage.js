@@ -1,4 +1,6 @@
 import React from 'react';
+import ActivityList from './components/ActivityList';
+import Favorites from './components/Favorites';
 import './LandingPage.css';
 
 function LandingPage() {
@@ -9,7 +11,8 @@ function LandingPage() {
         <p>Your one-stop solution for all your awesome needs.</p>
       </header>
       <main className="landing-main">
-        <button className="get-started-button">Get Started</button>
+        <ActivityList />
+        <Favorites />
       </main>
     </div>
   );
