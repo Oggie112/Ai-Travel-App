@@ -40,7 +40,11 @@ function ActivityList() {
   }
 
   if (activities.length === 0) {
-    return <div>No activities match your filters.</div>;
+    return (
+      <div style={{ padding: '20px', textAlign: 'center', fontSize: '1.2em' }}>
+        No activities match your filters.
+      </div>
+    );
   }
 
   return (
