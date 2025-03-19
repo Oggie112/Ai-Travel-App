@@ -55,3 +55,9 @@ export default {
   getActivities,
   getFilteredActivities
 };
+
+// Sample test: calling getFilteredActivities with sample filters and logging the result.
+// This code is for testing purposes and will run when this module is executed.
+getFilteredActivities({ type: 'hiking', cost: 'low' }).then(filteredActivities => {
+  console.log('Filtered activities for type "hiking" and cost "low":', filteredActivities);
+});
