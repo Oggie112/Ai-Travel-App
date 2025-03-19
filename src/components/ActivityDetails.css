@@ -1,0 +1,21 @@
+.activity-details {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.activity-details h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.activity-details h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #555;
+}
+
+.activity-details p {
+  font-size: 1.2em;
+  color: #333;
+}
