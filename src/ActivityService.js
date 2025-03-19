@@ -57,6 +57,14 @@ export async function getRandomActivities() {
   try {
     const response = await axios.get('https://api.mocki.io/v2/12345');
     const data = response.data;
+    
+    // Check if the response contains an error message
+    if (data.name === "SUBSCRIPTION_REQUIRED") {
+      console.error("API error:", data.message);
+      return [];
+    }
+
+    // Assuming the API returns an array of activities, map the data to our expected format.
     const mappedActivities = data.map((activity, index) => ({
       id: activity.id || index + 1,
       name: activity.name || "Unknown Activity",
