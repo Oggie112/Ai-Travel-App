@@ -1,0 +1,24 @@
+.landing-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.landing-header {
+  margin-bottom: 20px;
+}
+
+.landing-header h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.landing-header p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.landing-main .get-started-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
