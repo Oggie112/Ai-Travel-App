@@ -1,10 +1,17 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './LandingPage';
+import ActivityDetails from './components/ActivityDetails';
+import './App.css';
 
 function App() {
   return (
-    <LandingPage />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/activity/:id" element={<ActivityDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
