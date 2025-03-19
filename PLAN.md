@@ -21,8 +21,18 @@ In the 'travel-planner' React project, create a `components/ActivityList.js` fil
 ## Prompt 7: Create ActivityDetails Component
 In the 'travel-planner' React project, create a `components/ActivityDetails.js` file. Define a functional component `ActivityDetails` that takes an `activity` prop. Render the activity’s `name`, `type`, and `destination` in a simple layout. Add basic CSS in `ActivityDetails.css` for readability. Export the component.
 
-## Prompt 8: Add Navigation to ActivityDetails
-In the 'travel-planner' React project, install `react-router-dom`. Update `App.js` to use `BrowserRouter`, and define two routes: `/` for `LandingPage` and `/activity/:id` for `ActivityDetails`. Modify `ActivityCard` to wrap its content in a `Link` to `/activity/${activity.id}`. Pass the selected activity to `ActivityDetails` via route state. Ensure navigation works.
+### Prompt 8.1: Set Up Routing with `react-router-dom`
+In the 'travel-planner' React project, install `react-router-dom`. Update `App.js` to use `BrowserRouter` and define two routes:
+- `/` for `LandingPage`
+- `/activity/:id` for `ActivityDetails`
+
+Ensure that `ActivityDetails` can receive the `id` parameter from the route. 
+
+### Prompt 8.2: Link Activity Cards to Activity Details
+Modify `ActivityCard` to wrap its content in a `Link` to `/activity/${activity.id}`. Pass the selected activity to `ActivityDetails` via route state. 
+
+Test the navigation to ensure clicking an `ActivityCard` correctly navigates to `ActivityDetails` with the appropriate data.
+
 
 ## Prompt 9: Implement UserPreferences Singleton
 In the 'travel-planner' React project, create a `services/UserPreferences.js` file. Implement a singleton object with `getFavorites()` (loads from storage or returns empty array), `setFavorites(favorites)` (saves to storage), `getFilters()`, and `setFilters(filters)` (similarly). Use `utils/storage.js`. Export the object. Test by saving and loading a favorites array.
