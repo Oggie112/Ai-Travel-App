@@ -81,6 +81,26 @@ export async function getRandomActivities() {
   }
 }
 
+export async function getActivityDetails(id) {
+  try {
+    const response = await axios.get(`https://api.mocki.io/v2/${id}`);
+    const data = response.data;
+    const details = {
+      id: data.id || id,
+      name: data.name || "Unknown Activity",
+      description: data.description || "No description available.",
+      type: data.type || "unknown",
+      destination: data.destination || "unknown",
+      cost: data.cost || "unknown",
+      imageUrl: data.imageUrl || "https://example.com/default.jpg"
+    };
+    return details;
+  } catch (error) {
+    console.error("Error fetching activity details:", error);
+    return { error: "Failed to fetch activity details" };
+  }
+}
+
 export function getPosts() {
   return axios.get("https://jsonplaceholder.typicode.com/posts")
     .then(response => {
@@ -97,13 +117,12 @@ export default {
   getActivities,
   getFilteredActivities,
   getRandomActivities,
+  getActivityDetails,
   getPosts
 };
 
-// Sample test: calling getFilteredActivities with sample filters and logging the result.
 getFilteredActivities({ type: 'hiking', cost: 'low' }).then(filteredActivities => {
   console.log('Filtered activities for type "hiking" and cost "low":', filteredActivities);
 });
 
-// Test Axios GET request for posts
 getPosts();
