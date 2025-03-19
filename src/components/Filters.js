@@ -18,12 +18,14 @@ function Filters() {
     const newType = e.target.value;
     setType(newType);
     UserPreferences.setFilters({ type: newType, cost });
+    window.dispatchEvent(new Event("filtersChanged"));
   };
 
   const handleCostChange = (e) => {
     const newCost = e.target.value;
     setCost(newCost);
     UserPreferences.setFilters({ type, cost: newCost });
+    window.dispatchEvent(new Event("filtersChanged"));
   };
 
   return (
